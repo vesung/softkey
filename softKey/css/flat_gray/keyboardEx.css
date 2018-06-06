@@ -1,0 +1,240 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/*键盘区域的宽度*/
+
+.softkey-container{
+    position:absolute; bottom: 0px; left: 0px; width: 100%; z-index: 6000;
+}
+
+/*键盘区域div*/
+#virtualKeyboard {
+    border: 0px solid #b3b3b3;
+    background: rgba(153, 153, 153, 0.9);
+    height: 270px;
+    margin-left:0px;
+    padding-right: 2px;
+    padding-top: 2px;
+    visibility: visible !important;
+    margin-top:0px;
+    text-align: center;
+}
+#virtualKeyboard #kbDesk{display: inline-block; width: 1024px; }
+
+/*所有按钮中的超链接背景样式*/
+#kbDesk div.kbButton a {
+    background: url() 0 0 no-repeat;
+}
+/*所有按钮的背景样式*/
+#kbDesk div.kbButton {
+    height: 61px;
+    width: 61px;
+    border: 1px solid #fff;
+    background: #fff;
+    border-radius: 8px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    box-shadow: 0px 3px 3px #5c5c5c;
+}
+/*所有按钮的按下样式*/
+#kbDesk div.kbButton:active{
+    background: #d7d7d7;
+}
+/*中英文切换按钮样式*/
+#kbDesk div#kb_binput_method{
+    height: 58px;
+    width: 129px;
+    left: -17;
+}
+/*大小写切换按钮样式、shift键按钮样式*/
+#kbDesk div#kb_bcaps,#kbDesk div#kb_bshift_right {
+    height: 58px;
+    width: 58px;
+}
+#kbDesk div#kb_bcaps .title{
+    line-height: 15px;
+    margin-top: 13px;
+
+}
+/*功能键的title*/
+#kbDesk div.kbButton span.title {
+    display: block;
+}
+/*文字选择区域样式*/
+#textSelection{
+    display: none;
+    visibility: hidden;
+    border: 1px solid #999999;
+    margin-left:0px;
+    margin-top:0px;
+	
+}
+#textSelection.ZH{display: block; }
+
+#VirtualKeyboardIME {
+    background: #fff;
+    border: 0;
+    position: relative;
+    z-index: 2;
+	
+}
+
+#VirtualKeyboardIME table td.IMEContent table, #textSelection {
+    height: 60px;
+	 width: 100%;
+}
+#VirtualKeyboardIME table td.IMEControl {
+    border: 0px solid #000;
+    padding: 0px;
+    vertical-align: middle;
+    width: 160px;
+	
+}
+#VirtualKeyboardIME.ZH td.IMEContent {
+    width:100%;
+	 text-align: center;
+}
+#VirtualKeyboardIME table td {
+    text-align: center;
+    line-height: 60px;
+    font-family: 微软雅黑;
+    font-size: 20px;
+	
+}
+#VirtualKeyboardIME div.right, #VirtualKeyboardIME div.left{
+    border-left: 0px;
+    border-right: 0px;
+	 width: 75px;
+}
+#VirtualKeyboardIME div.left, #VirtualKeyboardIME div.right {
+	
+    border-bottom: 0px solid #fff;
+    border-top: 0px solid #fff;
+	border-left: 0px;
+    border-right: 0px;
+    font-size: 20px;
+    overflow: hidden;
+}
+#VirtualKeyboardIME div.rightborder{
+    border-left: 1px solid #999999;
+}
+#VirtualKeyboardIME div.leftborder{
+    border-right: 1px solid #999999;
+}
+
+#kbDesk.modeAlt span.charShiftAlt, #kbDesk.modeCaps span.charShiftCaps, #kbDesk.modeNormal span.charAlt,
+ #kbDesk.modeNormal span.charShift, #kbDesk.modeShift span.charShiftAlt, #kbDesk.modeShift span.charShiftCaps {
+    display: none;
+}
+#kbDesk.modeAlt span.charAlt, #kbDesk.modeCaps span.charCaps, #kbDesk.modeNormal span.charNormal,
+#kbDesk.modeShift span.charShift, #kbDesk.modeShiftAlt span.charShiftAlt, #kbDesk.modeShiftCaps span.charShiftCaps {
+    bottom: 0px;
+}
+#kbDesk div.kbButton span #cnusspan{
+    font-size: 14px;
+}
+/*****************************************************/
+/*隐藏用不到的按钮(修改此项会影响键盘布局,请谨慎操作)*/
+#kb_langselector, #kb_mappingselector, #copyrights,#kb_btab,#kb_bshift_left,
+#kb_bctrl_left,#kb_balt_left,#kb_balt_right,#kb_bctrl_right {
+    display: none;
+}
+
+
+/************* 按键通用样式 ****************/
+#virtualKeyboard div.kbButton span.charNormal,#kbDesk div.kbButton span.charNormal {
+    font-family: Arial;
+    font-size: 22px;
+    line-height: 58px;
+}
+#virtualKeyboard div.ctrBtn span.charNormal{font-family: 微软雅黑; font-size: 16px; text-align: right; padding-right: 10px;}
+#virtualKeyboard div#kb_bdot span.charNormal{font-weight: 600;}
+
+/*************** 独立数字键盘样式 **************************/
+#virtualKeyboard.NUM div.leftkey{display: inline-block; width: 220px; }
+#virtualKeyboard.NUM div.rightkey{display: inline-block; width: 53px;margin-left: -11px;line-height:58px;}/*margin-left: -15px;line-height:58px;*/
+#virtualKeyboard.NUM #kbDesk .rightkey div#kb_bclose{ width: 60px; float: left; margin-top: 0px; height: 192px; 
+    background-color: #676767; border: #676767; box-shadow: 0px 3px 3px 0px #313131;}
+#virtualKeyboard.NUM #kbDesk .rightkey div#kb_bclose span{top: 60px; color: #fff;}
+
+/*************** 中文软键盘样式 **************************/
+#virtualKeyboard.ZH div.leftkey{    display: inline-block; width: 750px;}
+#virtualKeyboard.ZH div.rightkey{    display: inline-block; width: 220px;}
+
+#virtualKeyboard.ZH div#kb_ba{    margin-left: 40px;}
+#virtualKeyboard.ZH div#kb_bl{margin-right: 30px;}
+#virtualKeyboard.ZH div#kb_bbackspace{ width: 132px; }
+#virtualKeyboard.ZH div#kb_bswich_EN-US{width: 132px;}
+#virtualKeyboard.ZH div#kb_bspace{width: 345px;}
+#virtualKeyboard.ZH div#kb_bclose{width: 131px; background-color: #676767; border: #676767; box-shadow: 0px 3px 3px 0px #313131;}
+#virtualKeyboard.ZH div#kb_bclose span{color: #fff; }
+
+#virtualKeyboard.ZH div#kb_bA{    margin-left: 40px;}
+#virtualKeyboard.ZH div#kb_bL{margin-right: 30px;}
+
+/**************** 中英文切换按钮样式 ********************/
+#virtualKeyboard div.leftkey span.akey,
+#virtualKeyboard div.leftkey span.bkey{display: inline-block; line-height: 58px; font-family: 微软雅黑;}
+#virtualKeyboard div.leftkey span.akey{font-size: 16px;}
+#virtualKeyboard div.leftkey span.bkey{color: #AFAFAF; font-size: 14px;}
+#virtualKeyboard div.leftkey div.ab{text-align: right; padding-right: 6px;}
+
+/*************** 英文软键盘 **************************/
+#virtualKeyboard.EN div.leftkey{    display: inline-block; width: 750px;}
+#virtualKeyboard.EN div.rightkey{    display: inline-block; width: 220px;}
+
+#virtualKeyboard.EN  div#kb_ba{    margin-left: 40px;}
+#virtualKeyboard.EN  div#kb_bl{    margin-right: 30px;}
+#virtualKeyboard.EN  div#kb_bbackspace  { width: 132px; }/*删除*/
+#virtualKeyboard.EN  div#kb_bswich_ZH-CN  { width: 132px; }/*中英*/
+#virtualKeyboard.EN  div#kb_bspace  { width: 345px; }/*空格*/
+#virtualKeyboard.EN  div#kb_bclose  { width: 131px; background-color: #676767; border: #676767; box-shadow: 0px 3px 3px 0px #313131;}/*完成*/
+#virtualKeyboard.EN  div#kb_bclose span{color: #fff; }
+
+#virtualKeyboard.EN  #kbDesk div div#kb_bA.kbButton{ margin-left: 40px;}
+#virtualKeyboard.EN  #kbDesk div div#kb_bL.kbButton{margin-right: 30px;}
+
+/*************** 符号键盘 **************************/
+#virtualKeyboard.FH div.leftkey{    display: inline-block; width: 750px;}
+#virtualKeyboard.FH div.rightkey{    display: inline-block; width: 220px;}
+
+#virtualKeyboard.FH div#kb_bkey2_0{    margin-left: 40px;}
+#virtualKeyboard.FH  div#kb_bkey2_8{    margin-right: 30px;}
+#virtualKeyboard.FH  div#kb_bkey4_6 a span.charNormal {    margin-left: 10px;}
+#virtualKeyboard.FH div#kb_bbackspace{ width: 130px; }/*删除*/
+#virtualKeyboard.FH div#kb_bclose{ width: 130px; background-color: #676767; border: #676767; box-shadow: 0px 3px 3px 0px #313131;}/*完成*/
+#virtualKeyboard.FH  div#kb_bclose span{color: #fff; }
+
+/**************** 候选字展开样式 ******************/
+div#showAll{width: 100%; height: 333px; background-color: #fff;
+    display: none; z-index: 1000; position: absolute; top: 0px; border: solid 1px #999;}
+div#showAll .top{height: 0px; background-color: #999;}
+div#showAll .bottom{    height: 60px; border-top: solid 1px #999; font-size: 22px;
+    font-family: 微软雅黑; line-height: 60px; padding-left: 10px;}
+div#showAll .content{height: 272px;}
+div#showAll .content a{    background-color: rgba(0, 0, 0, 0);
+    height: 40px;
+    border-collapse: collapse;
+    color: rgb(0, 0, 0);
+    cursor: auto;
+    display: inline-block;
+    font-family: 宋体;
+    font-size: 22px;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    visibility: visible;
+    white-space: nowrap;
+    width: 40px;
+	}
+div#showAll .content a:after {
+    display: block;
+    border-bottom: solid 1px #999;
+    content: '';
+    width: 100%;
+    position: fixed;
+    float: right;
+}

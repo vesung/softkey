@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<head>
+	<title>中文软键盘DEMO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body bgcolor="#FFFFFF" scroll=no  style="overflow:hidden; padding:0px;" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<div id="Lock" style="width:658px; margin-left:20%;margin-top:5%" >
+    <div style="padding-top:90px;">
+    	<div style="padding-left: 180px;">
+    		<input id="User_Id" type="text" style="width:310px; height:50px; font-size: 24px;" 
+    			class="softinput" placeholder="用户名" />
+        	<input id="User_Pswd" type="password" style="width:310px; height:50px;margin-top:20px; font-size: 24px;" 
+        		class="softinput" placeholder="密码" />
+    	</div>
+        <div>
+            <button class='back' style="margin-left:186px; margin-top:20px;" onclick="" >取消</button>
+          	<button class='login' style="margin-top:20px;"  style="margin-left:15px">登录</button>
+			<button id="switchNum" >纯数字键盘</button>
+			<button id="switchCn" >中英文键盘</button>
+			<button id="switchSign" >符号键盘</button>
+        </div>
+    </div>
+
+    <div style="position: fixed; bottom: 30px; left: 30px;" >
+   
+    </div>
+</div>
+
+
+<div id="softkey" style="position: fixed; bottom: 0px; left: 0px; width: 100%;" ></div>
+<script type="text/javascript" src="./SoftKey/vk_loader.js?vk_layout=CN%20CN&vk_skin=flat_gray" ></script>
+
+<!-- 调用方法-->
+<script type="text/javascript">
+    //vk_zh.js为添加字符存放路径，可自行更改
+	if(VirtualKeyboard && VirtualKeyboard.load_zh)
+		VirtualKeyboard.load_zh('vk_zh.js');
+
+
+	// 给文本框添加点击事件，点击后打开软键盘
+	function openSoftkey(argument) {
+		VirtualKeyboard.open(this.id, 'softkey');
+	
+	}
+	document.getElementById('User_Id').onclick = openSoftkey;
+	document.getElementById('User_Pswd').onclick = openSoftkey;
+
+	// 功能按钮事件，切换数字键盘
+	document.getElementById('switchNum').onclick = function(){
+		VirtualKeyboard.switchLayout('nums nums');
+	}
+
+	// 功能按钮事件，切换中英文键盘
+	document.getElementById('switchCn').onclick = function(){
+		VirtualKeyboard.switchLayout('CN CN');
+	}
+	
+	// 功能按钮事件，切换符号键盘
+	document.getElementById('switchSign').onclick = function(){
+		VirtualKeyboard.switchLayout('sign sign');
+	}
+	
+</script>
+
+</body>
+</html>
+

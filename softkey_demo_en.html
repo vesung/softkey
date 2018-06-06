@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<head>
+	<title>英文软键盘DEMO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body bgcolor="#FFFFFF" scroll=no  style="overflow:hidden; padding:0px;" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<div id="Lock" style="width:658px; margin-left:20%;margin-top:5%" >
+    <div style="padding-top:90px;">
+    	<div style="padding-left: 180px;">
+    		<input id="User_Id" type="text" style="width:310px; height:50px; font-size: 24px;" 
+    			class="softinput" placeholder="账户名称" />
+    		<span id="user_show"></span>
+        	<input id="User_Pswd" type="text" style="width:310px; height:50px;margin-top:20px; font-size: 24px;" 
+        		class="softinput" placeholder="帐号" />
+    	</div>
+        <div>
+            <button class='back' style="margin-left:186px; margin-top:20px;" onclick="" >取消</button>
+          	<button class='login' style="margin-top:20px;"  style="margin-left:15px">登录</button>
+			<button id="switchNum" >纯数字键盘</button>
+			<button id="switchCn" >中英文键盘</button>
+        </div>
+    </div>
+</div>
+
+
+<div id="softkey" style="position: fixed; bottom: 0px; left: 0px; width: 100%;" ></div>
+
+<script type="text/javascript" src="./SoftKey/vk_loader.js?vk_layout=US%20US&vk_skin=flat_gray" ></script>
+<!-- 调用方法-->
+<script type="text/javascript">
+
+	// 给文本框添加点击事件，点击后打开软键盘
+	function openSoftkey(argument) {
+		VirtualKeyboard.open(this.id, 'softkey');
+	}
+	document.getElementById('User_Id').onclick = openSoftkey;
+	document.getElementById('User_Pswd').onclick = openSoftkey;
+
+	// 功能按钮事件，切换数字键盘
+	document.getElementById('switchNum').onclick = function(){
+		VirtualKeyboard.switchLayout('nums nums');
+	}
+
+	// 功能按钮事件，切换中英文键盘
+	document.getElementById('switchCn').onclick = function(){
+		VirtualKeyboard.switchLayout('CN CN');
+	}
+
+	document.getElementById('User_Id').onchange = function(){
+		document.getElementById('user_show').innerText = this.value;
+	}
+	
+	// 默认加载完成自动打开软键盘
+	VirtualKeyboard.ready(function(){
+		
+		this.on('open', function(target){
+			console.info('opened...');
+			console.info(target);
+		});
+
+		this.on('close', function(target){
+			console.info('close...');
+			console.info(target);
+		});
+
+		this.open("User_Id", 'softkey');
+
+	});
+
+
+
+</script>
+
+</body>
+</html>
+
